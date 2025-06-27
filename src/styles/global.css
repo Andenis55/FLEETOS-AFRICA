@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities
+/* Reset some default browser styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Global heading styles */
+h1 {
+  color: #0078d4;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}

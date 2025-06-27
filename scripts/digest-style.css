@@ -1,0 +1,28 @@
+@page {
+  margin: 1in;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #1f2937; /* Tailwind gray-800 */
+}
+
+h1, h2, h3 {
+  color: #2563eb; /* FLEETOS Blue */
+}
+
+strong {
+  color: #10b981; /* Africa Green */
+}
+
+footer {
+  margin-top: 2em;
+  font-style: italic;
+  font-size: 0.9em;
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}

@@ -1,0 +1,3 @@
+lines.push('');
+lines.push(`<img src="../../public/weekly-digest-chart.png" alt="Weekly Chart" width="500" />`);
+lines.push('');

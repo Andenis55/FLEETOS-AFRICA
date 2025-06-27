@@ -1,0 +1,35 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+BRANCH=$(git symbolic-ref --short HEAD)
+
+echo "🔎 Current branch: $BRANCH"
+
+# Function to validate and stage digest file
+validate_and_stage() {
+  FILE=$1
+  if [ -s "$FILE" ]; then
+    echo "✅ $FILE generated successfully."
+    git add "$FILE"
+  else
+    echo "❌ $FILE is missing or empty. Commit aborted."
+    exit 1
+  fi
+}
+
+# Run digest logic based on branch
+if [ "$BRANCH" = "main" ]; then
+  echo "🛠 Running update-digest for main branch..."
+  npm run update-digest
+  validate_and_stage src/reports/weekly-digest.md
+
+elif echo "$BRANCH" | grep -q "^release-"; then
+  echo "🌍 Running multi-language digests for release branch..."
+  npm run digest:en
+  npm run digest:fr
+  validate_and_stage src/reports/weekly-digest.en.md
+  validate_and_stage src/reports/weekly-digest.fr.md
+
+else
+  echo "⚠️  No digest update required for this branch."
+fi

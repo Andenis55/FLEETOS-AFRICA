@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "📺 Dev: Start Live Preview",
+      "type": "shell",
+      "command": "npm run dev",
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": []
+    },
+    {
+      "label": "🧪 Run All Tests",
+      "type": "shell",
+      "command": "npm test",
+      "group": "test",
+      "presentation": { "reveal": "always" },
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "📝 Export Digest to PDF",
+      "type": "shell",
+      "command": "npx md-to-pdf src/reports/weekly-digest.md --css scripts/digest-style.css --out-dir exports",
+      "group": "none",
+      "presentation": { "reveal": "always" }
+    }
+  ]
+}

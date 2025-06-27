@@ -1,0 +1,17 @@
+{
+    "i18n-ally.localesPaths": [
+        "src/i18n",
+        "src/i18n/locales"
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.inlineSuggest.enable": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "markdown": false // optional if you prefer to write docs without Copilot
+    },
+    "github.copilot.suggestionDelayMs": 75,
+    "github.copilot.advanced": {
+        "inlineSuggestCount": 3
+    }
+}
