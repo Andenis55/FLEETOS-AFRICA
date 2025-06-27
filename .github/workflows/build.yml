@@ -28,5 +28,14 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Run coverage
+        run: npm run coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage
+
       - name: Run linter
         run: npm run lint

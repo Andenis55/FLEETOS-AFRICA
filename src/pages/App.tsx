@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Home from './Home';
-import DriverDashboard from './DriverDashboard';
-import TripManager from './TripManager';
-import Drivers from './Drivers';
-import DriverProfile from './DriverProfile';
+import ReactGA from 'react-ga4';
+import Home from './Home.tsx';
+import DriverDashboard from './DriverDashboard.tsx';
+import TripManager from './TripManager.tsx';
+import Drivers from './Drivers.tsx';
+import DriverProfile from './DriverProfile.tsx';
+
+ReactGA.initialize('G-XXXXXXX');
 
 const App: React.FC = () => {
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-blue-600 text-white px-6 py-4 shadow">

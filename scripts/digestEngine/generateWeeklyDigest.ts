@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { writeFile } from 'fs/promises';
-import { Chart, registerables } from 'chart.js';
+import { Chart, registerables, ChartItem } from 'chart.js';
 import { createCanvas } from 'canvas';
 import { getDigestData } from '@digestEngine/fetchWeeklyStats';
 import { digestConfig } from '@digestEngine/config'; // <-- Added import
@@ -19,9 +19,9 @@ const { improvedTitle, noImprovements, footer } = locale;
 
 const generateChart = async () => {
   const canvas = createCanvas(800, 400);
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-  new Chart(ctx, {
+  new Chart(ctx as unknown as ChartItem, {
     type: 'bar',
     data: {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],

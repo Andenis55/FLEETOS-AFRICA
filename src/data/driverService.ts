@@ -1,4 +1,4 @@
-import { Driver } from './drivers';
+import { Driver } from './drivers.ts';
 
 /**
  * Fetches driver data from a remote API.

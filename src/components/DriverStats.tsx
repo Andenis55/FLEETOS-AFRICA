@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Trip } from '../data/trips';
 import { Driver, drivers as initialDrivers } from '../data/drivers';
 import { fetchDriversFromAPI } from '../data/driverService';
-import FleetFlagOverview from './FleetFlagOverview';
-import FlagByRegionChart from './FlagByRegionChart';
-import FlagTrendChart from './FlagTrendChart'; // <-- Add this import
+import FleetFlagOverview from './FleetFlagOverview.tsx';
+import FlagByRegionChart from './FlagByRegionChart.tsx';
+import FlagTrendChart from './FlagTrendChart.tsx';
 
 type FlagHistory = {
   date: string;

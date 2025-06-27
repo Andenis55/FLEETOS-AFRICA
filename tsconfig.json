@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "strict": true,
     "noImplicitAny": false,
@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true
   },
   "include": ["src", "scripts"]
