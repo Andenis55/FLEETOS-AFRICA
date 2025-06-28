@@ -10,7 +10,8 @@ import { getBestAvailableDriver } from '../utils/assignDriver';
 
 // Multilingual name helper
 const userLocale = navigator.language?.slice(0, 2) ?? 'en';
-const getDriverName = (driver: any, locale: string = 'en') => {
+type Driver = { name: string | { [key: string]: string }; id: string };
+const getDriverName = (driver: Driver, locale: string = 'en') => {
   const name = driver.name;
   return typeof name === 'string' ? name : name[locale] || name['en'] || '[Unnamed]';
 };
