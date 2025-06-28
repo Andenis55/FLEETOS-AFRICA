@@ -1,14 +1,10 @@
-import myStuff from './myModule.ts';
-
 export type MultilingualName = {
-  en: string; // English
-  sw?: string; // Swahili
-  ha?: string; // Hausa
-  [locale: string]: string | undefined; // Extendable
+  en: string;
+  [locale: string]: string | undefined;
 };
 
 export type Driver = {
-  id: number;
+  id: string | number;
   name: MultilingualName;
   licenseNumber: string;
   assignedTrips: number;
@@ -17,8 +13,9 @@ export type Driver = {
   location?: {
     lat: number;
     lng: number;
-    updatedAt: string; // ISO timestamp
+    updatedAt: string;
   };
+  // Add other fields as needed
 };
 
 export const drivers: Driver[] = [

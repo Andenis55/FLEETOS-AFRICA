@@ -97,7 +97,7 @@ const Drivers: React.FC = () => {
             {/* If you have a photoUrl, use it; otherwise, fallback */}
             <img
               src={
-                // @ts-ignore
+                // @ts-expect-error
                 driver.photoUrl ||
                 `https://ui-avatars.com/api/?name=${encodeURIComponent(driver.name.en)}`
               }

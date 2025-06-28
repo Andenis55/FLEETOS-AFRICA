@@ -4,8 +4,9 @@ import { drivers } from '../data/drivers';
 import { trips } from '../data/trips';
 
 // Multilingual name helper
+type Driver = { name: string | { [key: string]: string }; id: string };
 const userLocale = navigator.language?.slice(0, 2) ?? 'en';
-const getDriverName = (driver: any, locale: string = 'en') => {
+const getDriverName = (driver: Driver, locale: string = 'en') => {
   const name = driver.name;
   return typeof name === 'string' ? name : name[locale] || name['en'] || '[Unnamed]';
 };
@@ -13,7 +14,7 @@ const getDriverName = (driver: any, locale: string = 'en') => {
 const DriverProfile: React.FC = () => {
   const { id } = useParams();
   // Support both string and number IDs
-  const driver = drivers.find((d) => String(d.id) === String(id));
+  const driver = drivers.find((d) => String(d.id) === String(id)) as Driver | undefined;
 
   if (!driver) return <p className="text-red-600">Driver not found.</p>;
 
