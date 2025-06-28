@@ -3,8 +3,9 @@ import { Trip } from '../data/trips';
 import { drivers } from '../data/drivers';
 
 // Multilingual name helper
+type Driver = { name: string | { [key: string]: string }; id: number };
 const userLocale = navigator.language?.slice(0, 2) ?? 'en';
-const getDriverName = (driver: any, locale: string = 'en') => {
+const getDriverName = (driver: Driver, locale: string = 'en') => {
   const name = driver.name;
   return typeof name === 'string' ? name : name[locale] || name['en'] || '[Unnamed]';
 };

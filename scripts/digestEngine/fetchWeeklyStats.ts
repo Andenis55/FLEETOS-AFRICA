@@ -1,4 +1,3 @@
-import { Driver } from '@digestEngine/types';
 import { drivers } from '@digestEngine/mockData';
 import { digestConfig } from '@digestEngine/config';
 import { format, getISOWeek, getYear, parseISO, startOfISOWeek, endOfISOWeek } from 'date-fns';

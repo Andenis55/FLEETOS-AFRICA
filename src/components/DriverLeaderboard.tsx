@@ -2,9 +2,11 @@ import React from 'react';
 import { drivers } from '../data/drivers';
 import { Trip } from '../data/trips';
 
-// Helper for multilingual name support
+// Local Driver type for multilingual name support
+type Driver = { name: string | { [key: string]: string }; id: number };
+
 const userLocale = navigator.language?.slice(0, 2) ?? 'en';
-const getDriverName = (driver: any, locale: string = 'en') => {
+const getDriverName = (driver: Driver, locale: string = 'en') => {
   const name = driver.name;
   return typeof name === 'string' ? name : name[locale] || name['en'] || '[Unnamed]';
 };
