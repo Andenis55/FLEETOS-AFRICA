@@ -1,6 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+npx tsx fix-import-extensions.ts
+npm run build
+
 BRANCH=$(git symbolic-ref --short HEAD)
 
 echo "🔎 Current branch: $BRANCH"

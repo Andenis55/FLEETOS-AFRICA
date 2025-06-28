@@ -139,7 +139,7 @@ const DriverStats: React.FC<Props> = ({ trips }) => {
     if (!localStorage.getItem(storageKey)) {
       loadRemoteDrivers();
     }
-    // eslint-disable-next-line
+     
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Driver } from './types';
+import { Driver } from './types.ts';
 
 export const drivers: Driver[] = [
   {
