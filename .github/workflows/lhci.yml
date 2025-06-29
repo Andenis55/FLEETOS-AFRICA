@@ -1,16 +1,19 @@
 name: Lighthouse CI
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
-    branches: [main, develop]
+    types: [opened, synchronize, reopened]
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -20,19 +23,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Axios
-        run: npm install axios
-
-      - name: Build project
+      - name: Build and preview site
         run: npm run build
 
       - name: Run Lighthouse CI
-        env:
-          LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_TOKEN }}
         run: npx lhci autorun
 
-      - name: Comment Lighthouse scores on PR
-        if: github.event_name == 'pull_request'
-        run: node .github/scripts/post-lhci-comment.js ${{ github.event.pull_request.number }}
+      - name: Post Lighthouse comment to PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          node .github/scripts/post-lhci-comment.cjs ${{ github.event.pull_request.number }}
